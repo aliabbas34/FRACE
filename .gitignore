@@ -1,0 +1,18 @@
+# Virtual environment
+facial_grouping_project_env/
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Database
+*.db
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Ignore specific folders you don't want
+compressed-photos/
+clustered_faces/
