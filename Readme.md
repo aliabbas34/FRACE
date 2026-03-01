@@ -45,7 +45,7 @@ Clustered Output Folders (clustered_faces)
 ```
 FRACE/
 │
-├── original-photos/        # Input images
+├── original-photos/        # Input images (create this folder with same name and paste the input images)
 ├── compressed-photos/      # Auto-generated compressed images
 ├── clustered_faces/        # Generated cluster folders (output)
 │
