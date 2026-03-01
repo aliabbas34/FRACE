@@ -8,7 +8,6 @@ def extract_faces(db_name, image_folder):
     conn = sqlite3.connect(DB_NAME)
     c = conn.cursor()
 
-    # 1. Collect all files first to initialize the progress bar
     all_files = []
     for root, _, files in os.walk(image_folder):
         for file in files:
@@ -41,6 +40,6 @@ def extract_faces(db_name, image_folder):
             print(f"\nSkipping {path} due to error: {e}")
             continue
 
-    conn.commit() # Final commit
+    conn.commit()
     conn.close()
     print("Face extraction complete.")

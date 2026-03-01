@@ -7,7 +7,6 @@ def compress_images(input_dir, output_dir):
 
     valid_extensions = ('.jpg', '.jpeg', '.png')
 
-    # Loop through all files in the input folder
     print(f"Starting image compression from {input_folder}...")
 
     for file_path in input_folder.rglob('*'):

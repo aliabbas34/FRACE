@@ -9,8 +9,6 @@ from tqdm import tqdm
 def sort_faces_to_folders(clusters, face_data, min_samples):
     
     base_dir = "clustered_faces"
-    
-    # Create a root directory if it doesn't exist
     if not os.path.exists(base_dir):
         os.makedirs(base_dir)
     
@@ -18,7 +16,7 @@ def sort_faces_to_folders(clusters, face_data, min_samples):
         if len(face_ids) < min_samples:
             print(f"Skipping cluster {label} with only {len(face_ids)} faces (less than min_samples={min_samples}).")
             continue
-        # 1. Create the specific folder for this label (folder_0, folder_1, etc.)
+        # Create the specific folder for this label (folder_0, folder_1, etc.)
         folder_name = os.path.join(base_dir, f"folder_{label}")
         if not os.path.exists(folder_name):
             os.makedirs(folder_name)
@@ -29,13 +27,10 @@ def sort_faces_to_folders(clusters, face_data, min_samples):
         print(f"Processing {folder_name}...")
         first_crop = True
         for face_id in face_ids:
-            # 2. Fetch the metadata from your "faces table"
-            # Replace this with your actual DB query logic
             data = face_data[face_id]
             image_path = data['path']
             
             try:
-                # 3. Open and crop the image
                 with Image.open(image_path) as img:
                     if(first_crop):
                         x,y,w,h = data['box']

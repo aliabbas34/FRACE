@@ -5,9 +5,7 @@ from correct-image-orientation import fix_orientation
 from extract-faces import extract_faces
 from cluster-faces import cluster_faces
 
-# =========================
 # CONFIG
-# =========================
 ORIGINAL_PHOTOS = "original-photos"
 COMPRESSED_PHOTOS = "compressed-photos"
 DB_NAME = "faces.db"
@@ -15,9 +13,7 @@ DB_NAME = "faces.db"
 os.makedirs(ORIGINAL_PHOTOS, exist_ok=True)
 os.makedirs(COMPRESSED_PHOTOS, exist_ok=True)
 
-# =========================
 # DATABASE SETUP
-# =========================
 def init_db():
     conn = sqlite3.connect(DB_NAME)
     c = conn.cursor()
@@ -37,12 +33,10 @@ def init_db():
     conn.commit()
     conn.close()
 
-# =========================
-# RUN PIPELINE
-# =========================
+# PIPELINE
 if __name__ == "__main__":
-    # compress_images(ORIGINAL_PHOTOS, COMPRESSED_PHOTOS)
-    # fix_orientation(COMPRESSED_PHOTOS)
+    compress_images(ORIGINAL_PHOTOS, COMPRESSED_PHOTOS)
+    fix_orientation(COMPRESSED_PHOTOS)
     init_db()
     extract_faces(DB_NAME, COMPRESSED_PHOTOS)
     cluster_faces(eps=0.4, min_samples=4, DB_NAME)

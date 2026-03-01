@@ -31,14 +31,13 @@ def fix_orientation(folder_path):
 
   found_rotated = False
   count = 0
-  # Loop through all files in the directory
+  
   for file_path in image_folder.rglob('*'):
     if file_path.is_dir():
       continue
 
     if file_path.suffix.lower() in valid_extensions:
       try:
-        # 1. Read and prepare the image
         image = load_rgb(file_path)
         temp = []
         for k in [0, 1, 2, 3]:
@@ -48,7 +47,6 @@ def fix_orientation(folder_path):
           prediction = model(torch.stack(temp)).numpy()
         np.set_printoptions(precision=6, suppress=True)
         predicted_degree = np.argmax(prediction[0])*90
-        # 3. Report only if rotation is needed
         if predicted_degree != 0:
           count = count+1
           rotate_in_place(file_path, 360-predicted_degree)
