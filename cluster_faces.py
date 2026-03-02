@@ -12,7 +12,7 @@ def sort_faces_to_folders(clusters, face_data, min_samples):
     if not os.path.exists(base_dir):
         os.makedirs(base_dir)
     
-    for label, face_ids in tqdm(clusters.items(), unit: 'cluster'):
+    for label, face_ids in tqdm(clusters.items(), unit= "cluster"):
         if len(face_ids) < min_samples:
             print(f"Skipping cluster {label} with only {len(face_ids)} faces (less than min_samples={min_samples}).")
             continue
@@ -43,7 +43,7 @@ def sort_faces_to_folders(clusters, face_data, min_samples):
                 print(f"Error processing face {face_id} from {image_path}: {e}")
 
 
-def cluster_faces(eps=0.4, min_samples=4, db_name):
+def cluster_faces(eps, min_samples, db_name):
     conn = sqlite3.connect(db_name)
     c = conn.cursor()
 

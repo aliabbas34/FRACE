@@ -26,7 +26,7 @@ def init_db():
         y INTEGER,
         w INTEGER,
         h INTEGER,
-        embedding TEXT,
+        embedding TEXT
     )
     """)
 
@@ -39,5 +39,5 @@ if __name__ == "__main__":
     # fix_orientation(COMPRESSED_PHOTOS)
     init_db()
     extract_faces(DB_NAME, COMPRESSED_PHOTOS)
-    cluster_faces(eps=0.4, min_samples=4, DB_NAME)
+    cluster_faces(0.4, 4, DB_NAME)
     print("All done.")
