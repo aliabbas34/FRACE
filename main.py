@@ -1,9 +1,9 @@
 import os
 import sqlite3
-from reduce-image-size import compress_images
-from correct-image-orientation import fix_orientation
-from extract-faces import extract_faces
-from cluster-faces import cluster_faces
+from reduce_image_size import compress_images
+from correct_image_orientation import fix_orientation
+from extract_faces import extract_faces
+from cluster_faces import cluster_faces
 
 # CONFIG
 ORIGINAL_PHOTOS = "original-photos"
@@ -35,8 +35,8 @@ def init_db():
 
 # PIPELINE
 if __name__ == "__main__":
-    compress_images(ORIGINAL_PHOTOS, COMPRESSED_PHOTOS)
-    fix_orientation(COMPRESSED_PHOTOS)
+    # compress_images(ORIGINAL_PHOTOS, COMPRESSED_PHOTOS)
+    # fix_orientation(COMPRESSED_PHOTOS)
     init_db()
     extract_faces(DB_NAME, COMPRESSED_PHOTOS)
     cluster_faces(eps=0.4, min_samples=4, DB_NAME)
