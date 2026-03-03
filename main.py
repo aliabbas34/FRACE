@@ -35,8 +35,8 @@ def init_db():
 
 # PIPELINE
 if __name__ == "__main__":
-    # compress_images(ORIGINAL_PHOTOS, COMPRESSED_PHOTOS)
-    # fix_orientation(COMPRESSED_PHOTOS)
+    compress_images(ORIGINAL_PHOTOS, COMPRESSED_PHOTOS)
+    fix_orientation(COMPRESSED_PHOTOS)
     init_db()
     extract_faces(DB_NAME, COMPRESSED_PHOTOS)
     cluster_faces(0.4, 4, DB_NAME)
