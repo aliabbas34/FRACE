@@ -5,7 +5,7 @@ import face_recognition
 from tqdm import tqdm
 
 def extract_faces(db_name, image_folder):
-    conn = sqlite3.connect(DB_NAME)
+    conn = sqlite3.connect(db_name)
     c = conn.cursor()
 
     all_files = []

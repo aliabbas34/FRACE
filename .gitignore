@@ -1,6 +1,7 @@
 # Virtual environment
 facial_grouping_project_env/
 venv/
+frace_env/
 
 # Python cache
 __pycache__/
